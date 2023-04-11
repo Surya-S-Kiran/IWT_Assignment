@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cascading Dropdown</title>
+    <script>
+        const topics = {
+  "front-end": ["HTML", "CSS", "Javascript"],
+  "back-end": ["NodeJS", "PHP"]
+};
+
+const chapters = {
+  "HTML": ["Links", "Images", "Tables", "Lists"],
+  "CSS": ["Borders", "Margins", "Backgrounds"],
+  "Javascript": ["Variables", "Operators", "Arrays", "Objects"],
+  "NodeJS": ["NPM", "HTTP", "Express"],
+  "PHP": ["Strings", "Arrays", "Regex"]
+};
+
+function populateTopics() {
+  const subject = document.getElementById("subject").value;
+  const topicSelect = document.getElementById("topic");
+  const chapterSelect = document.getElementById("chapter");
+
+  topicSelect.innerHTML = "<option value=''>--Select Topic--</option>";
+  chapterSelect.innerHTML = "<option value=''>--Select Chapter--</option>";
+
+  if (subject === "") {
+    topicSelect.disabled = true;
+    chapterSelect.disabled = true;
+  } else {
+    const availableTopics = topics[subject];
+
+    for (let i = 0; i < availableTopics.length; i++) {
+      const option = document.createElement("option");
+      option.value = availableTopics[i];
+      option.text = availableTopics[i];
+      topicSelect.appendChild(option);
+    }
+
+    topicSelect.disabled = false;
+  }
+  $("#submitForm").click(function() {
+      alert("The Form has been Submitted.");
+   });
+}
+
+function populateChapters() {
+  const topic = document.getElementById("topic").value;
+  const chapterSelect = document.getElementById("chapter");
+
+  chapterSelect.innerHTML = "<option value=''>--Select Chapter--</option>";
+
+  if (topic === "") {
+    chapterSelect.disabled = true;
+  } else {
+    const availableChapters = chapters[topic];
+
+    for (let i = 0; i < availableChapters.length; i++) {
+      const option = document.createElement("option");
+      option.value = availableChapters[i];
+      option.text = availableChapters[i];
+      chapterSelect.appendChild(option);
+    }
+
+    chapterSelect.disabled = false;
+  }
+}
+
+    </script>
+  </head>
+  <body>
+    <h1>Cascading Dropdown</h1>
+    <label for="subject">Subject:</label>
+    <select id="subject" onchange="populateTopics()">
+      <option value="">--Select Subject--</option>
+      <option value="front-end">Front-end</option>
+      <option value="back-end">Back-end</option>
+    </select>
+    <br><br>
+    <label for="topic">Topic:</label>
+    <select id="topic" onchange="populateChapters()" disabled>
+      <option value="">--Select Topic--</option>
+    </select>
+    <br><br>
+    <label for="chapter">Chapter:</label>
+    <select id="chapter" disabled>
+      <option value="">--Select Chapter--</option>
+    </select>
+    <br><br>
+    <button id="submitForm">Submit</button>
+  </body>
+</html>

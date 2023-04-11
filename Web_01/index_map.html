@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test Page</title>
+        <script>
+           function check() {
+                let o = {"one": 1, "two": 2};
+                let o1 = {"one": 1, "two": 2};
+                let m = new Map(Object.entries(o));  // the argument should be destructurable to pairs
+                let m1 = new Map(m);
+
+                console.log(m1.get("one"));
+                m1.set("one", 3).set("three", 3);  
+                m1.set(o, 7);
+                m1.set(o1, 8);
+                console.log(m1.size);
+                //m1.has("one");
+//                m1.delete("one");
+/*                for(let [k,v] of m1)
+                    console.log(k + " " + v);
+
+                console.log("two", "three");
+                console.log([...m1.values()]);
+                console.log(Object.values(o));
+*/
+ //               console.log(m1.get(null));
+                m1.forEach((value, index) => {console.log(index + " " + value);});
+           }
+        </script>
+        </head>
+    <body onload="check();">
+       
+    </body>
+</html>

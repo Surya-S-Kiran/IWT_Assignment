@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Navigation Bar</title>
+    <meta charset="utf-8" />
+    <style>
+      #badge{
+        position: fixed;
+        top: 10px;
+        border-width: 1px;
+        width: 100%;
+        margin: 0;
+        padding: 50px;
+        border-radius: 10px;
+        box-sizing: border-box;
+        text-align: center;
+        background-color: lightgrey;
+        color: #8c03fc;
+        font-size: 1cm;
+        z-index: 2;
+      }
+      
+      .subbadge {
+        position: fixed;
+        top: 170px;
+        width: 73.5%;
+        border-width: 1px;
+        margin: 10px 0;
+        padding: 50px;
+        border-radius: 20px;
+        box-sizing: border-box;
+        text-align: center;
+        background-color: #56a7b8;
+        color: #8c03fc;
+        font-size: 1cm;
+        overflow: scroll;
+      }
+      
+      .navbar {
+        list-style-type: none;
+        margin: 0;
+        padding: 0px;
+        width: 25%;
+        background-color: black;
+        position: fixed;
+        top: 170px;
+        height: 100%;
+        overflow: hidden;
+      }
+         
+      li a {
+        display: block;
+        font-size: 20px;
+        color: white;
+        font-family: Arial;
+        text-align: center;
+        padding: 10px 20px;
+        text-decoration: none;
+      }
+      
+      li a:hover {
+        background-color: lightgreen;
+        color: black;
+      }
+      
+      .active {
+        background-color: lightblue;
+        color: black;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <div id="badge">Welcome to JSR Tourism</div>
+    <ul class="navbar">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#about">About Us</a></li>
+    </ul>
+    
+    <div id="home" style="margin-left:25%; padding: 1px 16px;">
+    <div class="subbadge">Home</div>
+    <p style="height:1000px; position:fixed; top: 320px; background-color: lightblue; overflow: scroll;">
+      Some text here<br><br>
+      Some text here<br><br>
+      Some text here<br><br>
+      Some text here<br><br>
+      Some text here<br><br>
+      Some text here<br><br>
+      Some text here<br><br>
+      Some text here<br><br>
+            Some text here<br><br>
+      Some text here<br><br>
+      Some text here<br><br>
+      Some text here<br><br>
+      Some text here<br><br>
+      Some text here<br><br>
+      Some text here<br><br>
+      Some text here<br><br>
+            Some text here<br><br>
+      Some text here<br><br>
+      Some text here<br><br>
+      Some text here<br><br>
+      Some text here<br><br>
+      Some text here<br><br>
+      Some text here<br><br>
+      Some text here<br><br>
+            Some text here<br><br>
+      Some text here<br><br>
+      Some text here<br><br>
+      Some text here<br><br>
+      Some text here<br><br>
+      Some text here<br><br>
+      Some text here<br><br>
+      Some text here<br><br>
+    </p>
+    </div>
+  </body>
+</html>

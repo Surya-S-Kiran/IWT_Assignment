@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Date of Birth</title>
+        <script>
+           function sendReq() {
+            let dt = new Date(document.getElementById("dob").value);
+            let day = dt.getDate(), month = dt.getMonth(), year = dt.getFullYear();
+            let reqstr = `http://localhost:3000/age?day=${day}&month=${month}&year=${year}`;
+            console.log(reqstr);
+            let xmlhttpreq = new XMLHttpRequest();
+
+            xmlhttpreq.onreadystatechange = function (evt) {
+                if(xmlhttpreq.readyState == 4) {
+                    const text = xmlhttpreq.responseText;
+                    document.write(text);
+                }
+            };
+
+            xmlhttpreq.open("GET", reqstr, false);
+            xmlhttpreq.send();
+           }
+        </script>
+    </head>
+    <body>
+        <form>
+            <label for="dob">Date of Birth: </label>
+            <input type="date" name="dob" id="dob">
+            <input type="submit" value="Submit" onclick="sendReq();">
+        </form>
+    </body>
+</html>

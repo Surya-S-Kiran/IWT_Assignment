@@ -1,0 +1,26 @@
+* {}
+p {
+        color: green;
+        font-size: 30px;  /* Type selector */
+}
+
+p.intro {
+  border: 2px solid black;
+}
+
+#p1 {
+  border: 2px dotted red;
+}
+
+div>p {                       /* Child selector */
+  border: 2px solid red;
+  padding: 30px 0;
+}
+
+table, tr, td, th {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+

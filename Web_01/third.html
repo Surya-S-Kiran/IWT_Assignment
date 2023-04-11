@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pagination</title>
+    <style>
+      #pages {
+        display: inline-block;
+  /*      margin-left: auto;
+        margin-right: auto; */
+        position: fixed;
+        left: 41.3%;
+      }
+      
+      #pages a {
+        float: left;
+        color: black;
+        padding: 8px 16px;
+        text-decoration: none;
+        transition: background-color .3s;
+      }
+      
+      #pages a.active {
+        background-color: lightgreen;
+        border-radius: 10px;
+        color: white;
+      }
+      
+      #pages a:hover:not(.active){
+        background-color: #ccc;
+        border-radius: 10px;
+      }
+    </style>
+    <script>
+      function setPageAtMiddle() {
+        let page = document.getElementById("pages");
+        let shift = (window.innerWidth - pages.clientWidth) / 2;
+        pages.style.setProperty("left", shift + "px");
+      }
+    </script>
+  </head>
+  
+  <body>
+    <h2 style="text-align: center;">Hoverable pagination</h2>
+  
+    <div id="pages">
+      <a href="#">&laquo;</a>
+      <a href="#">1</a>
+      <a href="#" class="active">2</a>
+      <a href="#">3</a>
+      <a href="#">4</a>
+      <a href="#">5</a>
+      <a href="#">6</a>
+      <a href="#">&raquo;</a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Program 4</title>
+</head>
+<body>
+	<h1>Registration Form</h1>
+	<form action="submit-form.php" method="post">
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="name"><br><br>
+
+		<label for="password">Password:</label>
+		<input type="password" id="password" name="password"><br><br>
+
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email"><br><br>
+
+		<label for="interests">Interests:</label><br>
+		<input type="checkbox" id="interests1" name="interests" value="sports">
+		<label for="interests1">Sports</label><br>
+		<input type="checkbox" id="interests2" name="interests" value="music">
+		<label for="interests2">Music</label><br>
+		<input type="checkbox" id="interests3" name="interests" value="reading">
+		<label for="interests3">Reading</label><br><br>
+
+		<label for="gender">Gender:</label><br>
+		<input type="radio" id="gender1" name="gender" value="male">
+		<label for="gender1">Male</label><br>
+		<input type="radio" id="gender2" name="gender" value="female">
+		<label for="gender2">Female</label><br><br>
+
+		<label for="dob">Date of Birth:</label>
+		<input type="date" id="dob" name="dob" required><br><br>
+
+		<label for="photo">Profile Photo:</label>
+		<input type="file" id="photo" name="photo"><br><br>
+
+		<label for="age">Age:</label>
+		<input type="number" id="age" name="age" min="18" max="120" required><br><br>
+
+		<input type="submit" value="Submit">
+		<input type="reset" value="Reset">
+	</form>
+</body>
+</html>
+

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Program 7</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: Arial, sans-serif;
+		}
+		.banner {
+  background-color: lightgrey;
+  border: 1px ;
+  border-radius: 10px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
+  background-attachment: fixed;
+}
+.banner-text {
+  font-size: 1cm;
+  color: #8c03fc;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: black;
+}
+
+li a {
+  display: block;
+  color:white;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+li a.active {
+  background-color: lightblue;
+  color: white;
+}
+li a.act {
+  background-color: lightgreen;
+  color: white;
+}
+
+li a:hover:not(.active) {
+  background-color:rgb(203, 216, 203);
+  color: white;
+}
+	</style>
+</head>
+<body>
+
+	<div class="banner">
+        <p class="banner-text">Welcome to NITJSR</p>
+      </div>
+
+	  <ul>
+		<li><a class="active" href="#home">Home</a></li>
+		<li><a href="#news">News</a></li>
+		<li><a  class="act" href="#about">About Us</a></li>
+	  </ul>
+</body>
+</html>

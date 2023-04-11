@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test Page</title>
+        <script>
+            function update() {
+                btn.addEventListener("click", ()=>{console.log("Button Clicked Again");});
+            }
+
+            function check() {
+                // some compute-intensive code, not waiting for the result
+                // do next line immediately, concept of Promise
+                // callback functions are functions that will be performed on some event
+                let btn = document.getElementById("btn");
+                btn.addEventListener("click", ()=>{console.log("Button Clicked");});
+                setTimeout(update, 5000);
+            }
+        </script>
+        </head>
+    <body onload="check();">
+       <button id="btn"style="width:100px;height:40px;">Click</button>
+    </body>
+</html>

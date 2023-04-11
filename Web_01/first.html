@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>First Page</title>
+    <style>
+      a {
+        color: black;
+        background-color: #eee;
+        text-decoration: none;
+      }
+      
+      a:hover {
+        color: white;
+        background-color: lightgreen;
+      }
+      
+      a:link {}/* for unvisited links */
+      a:visited {
+        color: white;
+        background-color: lightblue;
+      }/* for visited links */
+      
+      p::first-letter {
+        content: " - Language";
+        color: red;
+        background-color: yellow;
+      }
+    </style>
+    <script src="script1.js"></script>
+  </head>
+  <body onload="check();">
+      <a href="#fedora">Go to Fedora Discussion</a>
+      
+      <h1 id="fedora">About Fedora</h1>
+      <p>Java</p>
+      <h1 id="ubuntu">About Ubuntu</h1>
+      <p>C</p>
+      
+      <p id="debug"></p>
+  </body>
+</html>

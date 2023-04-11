@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Grocery List</title>
+  </head>
+  <body>
+    <label for="item">Item:</label>
+    <input type="text" id="item">
+    <label for="price">Price:</label>
+    <input type="number" id="price">
+    <button onclick="addItem()">Add</button>
+    <br><br>
+    <table id="grocery-list">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Price</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Total:</td>
+          <td id="total">0</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <script>
+        const groceryList = [];
+
+function addItem() {
+  const item = document.getElementById("item").value;
+  const price = parseFloat(document.getElementById("price").value);
+  if (item && price) {
+    groceryList.push({ item: item, price: price });
+    showGroceryList();
+  }
+  document.getElementById("item").value = "";
+  document.getElementById("price").value = "";
+}
+
+function deleteItem(index) {
+  groceryList.splice(index, 1);
+  showGroceryList();
+}
+
+function showGroceryList() {
+  const table = document.getElementById("grocery-list");
+  table.deleteTHead();
+  table.deleteTFoot();
+  table.innerHTML = "<thead><tr><th>Item</th><th>Price</th><th></th></tr></thead><tbody></tbody><tfoot></tfoot>";
+  let total = 0;
+  groceryList.forEach((item, index) => {
+    const row = table.insertRow(-1);
+    row.insertCell(0).innerHTML = item.item;
+    row.insertCell(1).innerHTML = item.price.toFixed(2);
+    const deleteButton = document.createElement("button");
+    deleteButton.innerHTML = "Delete";
+    deleteButton.onclick = () => deleteItem(index);
+    row.insertCell(2).appendChild(deleteButton);
+    total += item.price;
+  });
+  const totalRow = table.insertRow(-1);
+  totalRow.insertCell(0).innerHTML = "Total:";
+  totalRow.insertCell(1).innerHTML = total.toFixed(2);
+  totalRow.insertCell(2);
+  document.getElementById("total").innerHTML = total.toFixed(2);
+}
+
+    </script>
+  </body>
+</html>

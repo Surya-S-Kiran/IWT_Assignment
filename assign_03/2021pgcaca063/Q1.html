@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Stopwatch</title>
+</head>
+<body>
+	<h1 id="timer">00:00:00</h1>
+	<button id="startBtn">Start</button>
+	<button id="stopBtn">Stop</button>
+	<button id="resetBtn">Reset</button>
+	<script>
+		var startTime, interval, elapsedTime = 0;
+
+		function startTimer(){
+			startTime = new Date();
+			interval = setInterval(updateTimer, 1000);
+		}
+
+		function updateTimer() {
+			var currentTime = new Date();
+			elapsedTime = currentTime - startTime + elapsedTime;
+			var timeElapsed = new Date(elapsedTime);
+			var hours = timeElapsed.getUTCHours().toString().padStart(2, '0');
+			var minutes = timeElapsed.getUTCMinutes().toString().padStart(2, '0');
+			var seconds = timeElapsed.getUTCSeconds().toString().padStart(2, '0');
+			document.getElementById('timer').innerHTML = hours + ':' + minutes + ':' + seconds;
+		}
+
+		function stopTimer() {
+			
+			clearInterval(interval);
+		}
+
+		function resetTimer() {
+			clearInterval(interval);
+			elapsedTime = 0;
+			document.getElementById('timer').innerHTML = '00:00:00';
+		}
+
+		document.getElementById('startBtn').addEventListener('click', startTimer);
+		document.getElementById('stopBtn').addEventListener('click', stopTimer);
+		document.getElementById('resetBtn').addEventListener('click', resetTimer);
+	</script>
+</body>
+</html>

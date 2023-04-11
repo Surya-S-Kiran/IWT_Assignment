@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Program 9</title>
+    <style>
+      /* paginator styles */
+      .paginator {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+      }
+      
+      .page {
+        border: none;
+        background-color: none;
+        padding: 10px;
+        cursor: pointer;
+        margin: 0 5px;
+        border-radius: 10px;
+      }
+      
+      .selected {
+        background-color: lightgreen;
+        border-radius: 10px;
+        color: white;
+      }
+      
+      .page:hover:not(.selected) {
+        background-color: #ccc;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  
+  <body onload="centerPaginator()">
+    <div class="paginator">
+      <div class="page">&laquo;</div>
+      <div class="page">1</div>
+      <div class="page selected">2</div>
+      <div class="page">3</div>
+      <div class="page">4</div>
+      <div class="page">5</div>
+      <div class="page">6</div>
+      <div class="page">&laquo;</div>
+    </div>
+    
+    <script>
+      // function to center the paginator
+      function centerPaginator() {
+        const paginator = document.querySelector('.paginator');
+        const windowWidth = window.innerWidth;
+        const paginatorWidth = paginator.offsetWidth;
+        const margin = (windowWidth - paginatorWidth) / 2;
+        paginator.style.marginLeft = margin + 'px';
+      }
+    </script>
+  </body>
+</html>

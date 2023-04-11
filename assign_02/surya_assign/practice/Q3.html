@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Q3</title>
+</head>
+<body>
+    <label for="item">Item name :</label>
+    <input type="text" id="item" >
+    <label for="price">Price : </label>
+    <input type="number" id="price">
+    <button id="add" onclick="addItem()">Add item</button>
+    <br><br>
+    <table id="grocery_list">
+        <thead>
+            <tr>
+                <th> item</th>
+                <th>price</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>total:</th>
+                <th id="total">0</th>
+                <th></th>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+       const groceryList = [];
+        function addItem(){
+        const item = document.getElementById('item').value;
+        const price = parseFloat(document.getElementById('price').value);
+        if(item && price){
+            groceryList.push({item: item, price: price});
+            showItems();
+        }    
+        document.getElementById("item").value = "";
+        document.getElementById('price').value = "";
+    }
+    function deleteItem(index){
+        groceryList.splice(index,1);
+        showItems();
+    }
+    function showItems(){
+        const table = document.getElementById('grocery_list');
+        table.deleteTHead();
+        table.deleteTFoot();
+        table.innerHTML = "<thead><tr><th>Item</th><th>Price</th><th></th></tr></thead><tbody></tbody><tfoot></tfoot>";
+        let total = 0;
+        groceryList.forEach((item,index) => {
+            const row = table.insertRow(-1);
+            row.insertCell(0).innerHTML = item.item;
+            row.insertCell(1).innerHTML = item.price;
+            const deletebtn = document.createElement("button");
+            deletebtn.innerHTML = "Delete";
+            deletebtn.onclick = () => deleteItem(index);
+            row.insertCell(2).appendChild(deletebtn);
+            total += item.price;
+        });
+        const totalRow = table.insertRow(-1);
+  totalRow.insertCell(0).innerHTML = "Total:";
+  totalRow.insertCell(1).innerHTML = total;
+  totalRow.insertCell(2);
+document.getElementById("total").innerHTML = total;
+    }
+
+    </script>
+</body>
+</html>

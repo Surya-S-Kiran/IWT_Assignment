@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Login</title>
+        <script>
+            function check_user() {
+                const email = document.getElementById('email').value;
+                if(email === "")
+                    return;
+
+                const xmlhttpreq = new XMLHttpRequest();
+                xmlhttpreq.onload = function(err) {
+                    if(xmlhttpreq.responseText === "")
+                        document.getElementById("error_invaliduser").style = "display: block";
+                    else
+                        document.getElementById("error_invaliduser").style = "display: none";
+                }
+
+                xmlhttpreq.open("POST", "/check_user", true);
+                xmlhttpreq.setRequestHeader('Content-type', 'application/json; charset=UTF-8')
+                xmlhttpreq.send(JSON.stringify({email: email}));
+            }
+        </script>
+    </head>
+    <body>
+        <div style="margin:auto;">
+        <form action="/process_login" method="post" autocomplete="off">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" onblur="check_user();"> <br />
+            <label for="passwd">Password:</label>
+            <input type="password" id="passwd" name="passwd"> <br />
+            <input type="submit" value="Login">
+
+            <output id="error_invaliduser" style="color: red; display: none;">Email does not exist.</output>
+        <!--    <output id="error_out" style="color: red; display: none;">User id and password do not match.</output> -->
+        </form>
+        </div>
+    </body>
+</html>

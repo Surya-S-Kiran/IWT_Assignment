@@ -1,0 +1,195 @@
+<html>
+	<head>
+		<title>quastion 4</title>
+		<style type="text/css">
+			#progress{
+				width: 10px;
+				max-width: 200px;
+				background-color: rgba(255, 0, 0, 0.688);
+			}
+			#quastion{
+				font-size: 20px ;
+				font-style: italic;
+				color:rgb(168, 32, 32);
+			}
+			body{
+				background-image: url(8.jpeg);
+			}
+			h2{
+				color: rgb(218, 46, 46);
+				font-size: 15px;
+				font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<hr/>
+		<h1 id="progress">[==========]</h1>
+		<h3 id="quastion">1.Inside which HTML element do we put the JavaScript?</h3>
+		<h2><input type="radio" name="options" value="1"/><span id="1"></span>p</h2>	
+		<h2><input type="radio" name="options" value="2"/><span id="2">script</span></h2>	
+		<h2><input type="radio" name="options" value="3"/><span id="3">scrisp</span></h2>	
+		<h2><input type="radio" name="options" value="4"/><span id="4">php</span></h2>	
+
+		<button id="next">NEXT</button>
+
+		<h2 id="total"></h2>
+
+		<script type="text/javascript">
+
+			let quiz = [
+				 
+				  {
+				    question: "1.Inside which HTML element do we put the JavaScript?",
+				    options: [
+				      "h1",
+				      "script",
+				      "java",
+				      "php"
+				    ],
+				    answer: 1
+				  },
+				  {
+				    question: "2.What is hoisting in JavaScript?",
+				    options: [
+				      "Hoisting is a JavaScript framework",
+				      "Hoisting is a feature in JavaScript that allows variables and function declarations to be",
+				      "Hoisting is the process of converting code written in one language to another language",
+				      "Hoisting is a technique used to speed up JavaScript code"
+				    ],
+				    answer: 1
+				  },
+				  {
+				    question: "3.What are the different data types in JavaScript?",
+				    options: [
+				      "Strings, numbers, booleans, and arrays",
+				      "Strings, numbers, booleans, objects, and undefined",
+				      "Strings, characters, integers, and undefined",
+				      "Strings, numbers, objects, and null"
+				    ],
+				    answer: 1
+				  },
+				  {
+				    question: "4.What is closure in JavaScript?",
+				    options: [
+				      "A closure is a function that takes no arguments",
+				      "A closure is a function that returns another function",
+				      "A closure is a function that can be called multiple times"
+				    ],
+				    answer: 2
+				  },
+				  {
+				    question: "5.What is the event loop in JavaScript?",
+				    options: [
+				      "The event loop is a way to create animations in JavaScript",
+				      "The event loop is a way to handle user input in JavaScript",
+				      "The event loop is a way to run asynchronous code in JavaScript",
+				      "The event loop is a way to load external resources in JavaScript"
+				    ],
+				    answer: 2
+				  },
+				  {
+				    question: "6.What is the difference between `==` and `===` in JavaScript?",
+				    options: [
+				      "`==` compares values only, while `===` compares both values and types",
+				      "`===` compares values only, while `==` compares both values and types",
+				      "`==` and `===` are interchangeable",
+				      "`==` and `===` are not used in JavaScript"
+				    ],
+				    answer: 0
+				  },
+				  {
+				    question: "7.What is the purpose of the `this` keyword in JavaScript?",
+				    options: [
+				      "The `this` keyword is used to create objects in JavaScript",
+				      "The `this` keyword is used to refer to the current function",
+				      "The `this` keyword is used to refer to the global object",
+				    ],
+				    answer: 3
+				  },
+
+				  {
+				    question: "8.What is the real name of javascript?",
+				    options: ["cpp", "java", "ecmaScript", "Rhinoceros"],
+				    answer: 2
+				  },
+				  {
+				    question: "9.Who painted the Mona Lisa?",
+				    options: ["Leonardo da Vinci", "Pablo Picasso", "Vincent van Gogh", "Salvador Dali"],
+				    answer: 0
+				  },
+				  {
+				    question: "10.What is the full form of js?",
+				    options: ["Kangaroo", "javascript", "Emu", "cvv"],
+				    answer: 1
+				  }
+				  
+				];
+
+			let quastions = document.getElementById("quastion");
+			let progressBar = document.getElementById("progress");
+			
+			let option1 = document.getElementById("1");
+			let option2 = document.getElementById("2");
+			let option3 = document.getElementById("3");
+			let option4 = document.getElementById("4");
+			
+			let totalAns = document.getElementById("total");
+
+			let radioButtons = document.getElementsByTagName("input");
+			
+			let next = document.getElementById("next");
+			let quastionNumber = 1;
+			let preAns = 0;
+			let totalScore = 0;
+
+			next.addEventListener("click",checkAns);
+
+			for(let i=0;i<radioButtons.length;i++){
+				radioButtons[i].addEventListener("change",() =>{
+
+					//quastions.innerHTML = totalScore;
+					//quastions.innerHTML = quiz[quastionNumber].question;
+
+					if(radioButtons[i].checked == true && quiz[quastionNumber - 1].answer == i){
+						preAns = 1;
+					}
+
+					else{
+						preAns = 0;
+					}
+				})
+
+			}
+
+			let bar = 20;
+
+			function checkAns(){
+
+				if(quastionNumber > 10)
+					return;
+
+				progressBar.style.width = bar;
+				bar += 20;
+				totalScore += preAns;
+
+				if(quastionNumber == 10){
+					total.innerHTML = "total score is :: "+totalScore;
+				}
+
+               quastions.innerHTML = quiz[quastionNumber].question;
+				option1.innerHTML = quiz[quastionNumber].options[0];
+				option2.innerHTML = quiz[quastionNumber].options[1];
+				option3.innerHTML = quiz[quastionNumber].options[2];
+				option4.innerHTML = quiz[quastionNumber].options[3];
+
+				quastionNumber++;
+			}
+
+
+		</script>
+	</body>
+
+
+</html>

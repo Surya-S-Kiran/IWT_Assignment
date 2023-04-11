@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Program 8</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: Arial, sans-serif;
+		}
+		.banner {
+  background-color: lightgrey;
+  border: 1px ;
+  border-radius: 10px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
+  background-attachment: fixed;
+}
+.banner-text {
+  font-size: 1cm;
+  color: #8c03fc;
+}
+		.navbar {
+			background-color: black;
+			position: fixed;
+			top: 220px;
+			left: 0;
+            margin-left: 10px;
+			margin-top: 20px;
+			width: 25%;
+			height: 50px;
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+           
+		}
+		.navbar a {
+			color: white;
+			padding: 10px;
+			text-align: center;
+			text-decoration: none;
+		}
+		.navbar a:hover {
+			color: black;
+			background-color: lightgreen;
+		}
+		.navbar .active {
+			color: white;
+			padding :5%;
+			background-color: lightblue;
+		}
+        .navbar .ab{
+			color: white;
+			padding :5%;
+			background-color: lightgreen;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="banner">
+        <p class="banner-text">Welcome to NITJSR</p>
+      </div>
+
+	<div class="navbar">
+		<a href="#" class="active">Home</a>
+		<a href="#">News</a>
+		<a href="#" class="ab">About Us</a>
+	</div>
+
+	<div class="content">
+		
+	</div>
+
+</body>
+</html>

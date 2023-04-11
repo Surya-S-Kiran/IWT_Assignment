@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Age Calculator</title>
+  </head>
+  <body>
+    <label for="event-date">Select event date:</label>
+    <input type="date" id="event-date" onchange="calculateAge()">
+    <br>
+    <label for="age">Age at event:</label>
+    <input type="text" id="age" disabled>
+    <script>
+        function calculateAge() {
+  const eventDate = new Date(document.getElementById("event-date").value);
+  const today = new Date();
+  const ageInMilliseconds = today - eventDate;
+  // const days = ageInMilliseconds / (1000 * 60 * 60 * 24);
+  // const d1 = Number(days % 365);
+  // const m1 = days % 12;
+  // const y1 = days / 365;
+  const ageInYears = ageInMilliseconds / (1000 * 60 * 60 * 24 * 365.25);
+
+  document.getElementById("age").value = ageInYears.toFixed(2);
+  // document.getElementById("age").value = "your age is " + y1 + " years " + m1 + "months "
+  // + d1 + "days ";
+}
+
+    </script>
+  </body>
+</html>

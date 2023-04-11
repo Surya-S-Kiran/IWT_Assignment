@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Registration Page</title>
+    <meta charset="utf-8">
+    <style>
+      .flex-container {
+        display: flex;
+        text-align: center;
+        height: 70%;
+        width: 40%;
+        margin: 10% 30%;
+      }
+      
+      .regform {
+        flex-basis: 50%;
+        text-align: center;
+        color: white;
+        background-color: black;
+      }
+      
+      input[type="text"], input[type="password"], input[type="email"] {
+        display: block;
+        border-width: 0 0 1px;
+        border-color: white;
+        margin: 10%;
+        width: 80%;
+        height: 60px;
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <div class="flex-container">
+      <div style="flex-basis: 50%;">
+        <!-- Photo by <a href="https://unsplash.com/@valentinantonini?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Valentin Antonini</a> on <a href="https://unsplash.com/images/things/book?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+  -->
+        <img src="bookshelf.jpg" width="100%" height="100%" />
+      </div>
+      <div class="regform">
+        <h1>Registration</h1>
+        <input type="text" id="name" name="name" placeholder="Name" />
+        <input type="email" id="email" name="email" placeholder="Email" />
+        <input type="password" id="passwd" name="passwd" placeholder="Password" />
+        <input type="password" id="repasswd" name="repasswd" placeholder="Repeat Password" />
+        <input type="reset" id="reset" name="reset" value="Reset" />
+        <input type="submit" id="submit" name="submit" value="Register" />
+      </div>
+    </div>
+    </div>
+  </body>
+</html>

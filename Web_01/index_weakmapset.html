@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test Page</title>
+        <script>
+            // WeakMap does not allow primitive types to be keys
+            // it implements only get, set, has, delete
+            // it does not have size property
+            // WeakSet does not allow primitive values as members
+            // implements only add, has, delete
+            // doesn't have size property
+            function check1(m) {
+                let o = {z:2};
+                m.set(o, 4);
+            }
+           function check() {
+               let m = new WeakMap();
+               m.set({x:1}, 3);
+               m.set({y:2}, 4);
+                let s = new WeakSet();
+                m.set([3], 7);
+                for (let [k,v] of m)
+                    console.log(k + " " + v);
+                check1(m);
+           }
+        </script>
+        </head>
+    <body onload="check();">
+       
+    </body>
+</html>

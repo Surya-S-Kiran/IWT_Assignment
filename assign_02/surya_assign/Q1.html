@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculator</title>
+    <style>
+        .calculator {
+  width: 300px;
+  margin: 0 auto;
+  background-color: #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0 10px #aaa;
+}
+
+.screen {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+#input {
+  width: 100%;
+  height: 30px;
+  border: none;
+  font-size: 20px;
+  text-align: right;
+  padding-right: 5px;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5px;
+}
+
+button {
+  width: 100%;
+  height: 40px;
+  font-size: 20px;
+  background-color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.number {
+  color: #333;
+}
+
+.operator {
+  color: #fff;
+  background-color: #888;
+}
+
+.equal {
+  color: #fff;
+  background-color: #0f0;
+}
+
+.clear {
+  color: #fff;
+  background-color: #f00;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="calculator">
+      <div class="screen">
+        <input type="text" id="input" disabled>
+      </div>
+      <div class="buttons">
+        <button class="number" onclick="addInput('7')">7</button>
+        <button class="number" onclick="addInput('8')">8</button>
+        <button class="number" onclick="addInput('9')">9</button>
+        <button class="operator" onclick="addInput('/')">/</button>
+        <button class="number" onclick="addInput('4')">4</button>
+        <button class="number" onclick="addInput('5')">5</button>
+        <button class="number" onclick="addInput('6')">6</button>
+        <button class="operator" onclick="addInput('*')">*</button>
+        <button class="number" onclick="addInput('1')">1</button>
+        <button class="number" onclick="addInput('2')">2</button>
+        <button class="number" onclick="addInput('3')">3</button>
+        <button class="operator" onclick="addInput('-')">-</button>
+        <button class="number" onclick="addInput('0')">0</button>
+        <button class="operator" onclick="addInput('.')">.</button>
+        <button class="equal" onclick="calculate()">=</button>
+        <button class="operator" onclick="addInput('+')">+</button>
+        <button class="clear" onclick="clearInput()">C</button>
+      </div>
+    </div>
+  
+    <script>
+const input = document.getElementById("input");
+
+function addInput(value) {
+  input.value += value;
+}
+
+function calculate() {
+  try {
+    const result = eval(input.value);
+    input.value = result;
+  } catch {
+    input.value = "Error";
+  }
+}
+
+function clearInput() {
+  input.value = "";
+}
+
+    </script>
+  </body>
+</html>
