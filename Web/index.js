@@ -23,6 +23,7 @@ app.post("/register", (req, res) => {
 
     dbaccess.insertDB(user);
 });
+//app 
 
 app.get("/login", (req, res) => {
     const email = req.cookies.email;
